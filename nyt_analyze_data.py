@@ -1,21 +1,38 @@
 from afinn import Afinn
 from nytimesarticle import articleAPI
+import time
 
-APIKEY = ''
+api = articleAPI(*APIKEY*) # change to use your own nyt API Key
 afinn = Afinn()
-api = articleAPI(APIKEY)
 
-articles = api.search(q='Clinton', begin_date=19990101,
-                      end_date=19990401)
+#count = 0
+headline_score = 0.0
 
-abstract = articles['response']['docs'][0]['abstract']
-headline = articles['response']['docs'][0]['headline']['main']
-pub_date = articles['response']['docs'][0]['pub_date']
+positive = 0
+negative = 0
+neutral = 0
 
-print("abstract: ", afinn.score(abstract), " headline: ", afinn.score(headline), " publication date: ", afinn.score(pub_date))
-
-print(float(afinn.score(abstract)) + float(afinn.score(headline)) + float(afinn.score(pub_date)))
-
-
+for i in range(0, 1):
+    articles = api.search(
+        q='Clinton, Bill', begin_date=19980101, end_date=19980201, page=i)
+    for a in articles['response']['docs']:
+        current_score = float(afinn.score(a['headline']['main']))
+        if(current_score > 0):
+            positive += 1
+        elif(current_score < 0):
+            negative +=1
+        else:
+            neutral +=1
+        
+        
+        headline_score += current_score
+        #count += 1
+        
+        time.sleep(.5) #nyt limits 5 requests per second
+        
+print("overall headline score: ", headline_score)      
+print("positive: ", positive)
+print("negative: ", negative)
+print("neutral: ", neutral)
 
 
