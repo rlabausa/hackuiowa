@@ -1,8 +1,9 @@
 from afinn import Afinn
 from nytimesarticle import articleAPI
+from matplotlib import pyplot as plt 
 import time
 
-api = articleAPI(*APIKEY*) # change to use your own nyt API Key
+api = articleAPI('f20dfc17dd8745aab3d1342093519e42') # change to use your own nyt API Key
 afinn = Afinn()
 
 #count = 0
@@ -29,10 +30,22 @@ for i in range(0, 1):
         #count += 1
         
         time.sleep(.5) #nyt limits 5 requests per second
-        
+    
 print("overall headline score: ", headline_score)      
 print("positive: ", positive)
 print("negative: ", negative)
 print("neutral: ", neutral)
+
+labels = 'Positive', 'Negative', 'Neutral'
+total = (positive + negative + neutral) 
+sizes = [positive/total, negative/total, neutral/total]
+explode = (0, 0, 0)
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels =labels, autopct='%1.1f%%',
+        shadow=False, startangle=90)
+ax1.axis('equal')
+plt.show()
+
 
 
