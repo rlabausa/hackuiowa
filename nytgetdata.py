@@ -1,5 +1,5 @@
 from nytimesarticle import articleAPI
-api = articleAPI('f20dfc17dd8745aab3d1342093519e42')
+api = articleAPI('API-Key')
 
 articles = api.search(q='Clinton', begin_date=19990101,
                       end_date=19990401)
