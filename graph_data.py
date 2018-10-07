@@ -3,10 +3,7 @@ import mysql.connector
 
 
 mydb = mysql.connector.connect(
-    host="sql169.main-hosting.eu",
-    user="u728211364_lily",
-    passwd="helloworld1",
-    database="u728211364_ravio"
+   #db info (user, host, passwd, etc.)
 )
 
 news_src = ['Wall Street Journal', 'CNN', 'Fox News',
