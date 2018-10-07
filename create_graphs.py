@@ -21,12 +21,22 @@ def stacked_bar(news_src, num_pos, num_neg, num_neut):
     bar_chart.render_to_file('stacked_bar.svg')   
 
 
+def line_graph(news_src, week1_nums, week2_nums, week3_nums, week4_nums):
+    line_chart = pygal.Line()
+    line_chart.title = 'Sentiment Analysis Score Over 4 Weeks'
+    line_chart.x_labels = map(str, range(1, 4))
+    line_chart.add(news_src[0], [week1_nums[0],
+                                 week2_nums[0], week3_nums[0], week4_nums[0]])
+    line_chart.add(news_src[1], [week1_nums[1],
+                                 week2_nums[1], week3_nums[1], week4_nums[1]])
+    line_chart.add(news_src[2], [week1_nums[2],
+                                 week2_nums[2], week3_nums[2], week4_nums[2]])
+    line_chart.add(news_src[3], [week1_nums[3],
+                                 week2_nums[3], week3_nums[3], week4_nums[3]])
+    line_chart.add(news_src[4], [week1_nums[4],
+                                 week2_nums[4], week3_nums[4], week4_nums[4]])
+    line_chart.add(news_src[5], [week1_nums[5],
+                                 week2_nums[5], week3_nums[5], week4_nums[5]])
 
-# src = ['NYT', 'WSJ', 'FOX', 'CNN', 'CBS', 'BBC']
-# pos = [1,2,3,4,5,6,7]
-# neg= [1,2,3,4,5,6,7]
-# neut= [1,2,3,4,5,6,7]
-
-# basic_bar(src, pos, neg, neut)
-# stacked_bar(src, pos, neg, neut)
+    line_chart.render_to_file('line_graph.svg')
 
