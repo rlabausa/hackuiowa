@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ravioli Visualization</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/team.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Raleway|Prata" rel="stylesheet">
+  </head>
+  <body>
+    <section id="navigation">
+      <div id="navbar">
+        <div id="logo">
+          <img src="images/ravioli_logo.png" alt="Ravioli Logo">
+        </div>
+        <div id="navelements">
+          <p id="navigation"><a href="index.html">Home</a></p>
+          <p id="navigation"><a href="team.html">The Team</a></p>
+          <p id="navigation"><a href="data.html">Our Data</a></p>
+        </div>
+      </div>
+    </section>
+    <section id="biosection">
+      <div class="content">
+        <h1 id="bioheader">Meet the team: </h1>
+        <div id="bios">
+          <div id="ruby" class="person">
+            <p id="name">Ruby</p>
+            <img src="images/ruby_profile.jpeg" alt="Picture of Ruby">
+            <div id="buttondiv">
+              <p>Connect with Ruby on linked in:</p>
+              <button type="button" id="button" onclick="rubyConnect()">Connect</button>
+            </div>
+          </div>
+          <div id="vicky" class="person">
+            <p id="name">Vicky</p>
+            <img src="images/vicky_profile.jpeg" alt="Picture of Vicky">
+            <div id="buttondiv">
+              <p>Connect with Vicky on linked in:</p>
+              <button type="button" id="button" onclick="vickyConnect()">Connect</button>
+            </div>
+          </div>
+          <div id="lily" class="person">
+            <p id="name">Lily</p>
+            <img src="images/lily_profile.jpeg" alt="Picture of Lily">
+            <div id="buttondiv">
+              <p>Connect with Lily on linked in:</p>
+              <button type="button" id="button" onclick="lilyConnect()">Connect</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+<script>
+function rubyConnect() {
+    document.getElementById("button").href = "https://www.linkedin.com/in/rubylabausa/";
+}
+
+function vickyConnect() {
+  document.getElementById("button").href = "https://www.linkedin.com/in/victoriahlo/";
+}
+
+function lilyConnect() {
+  document.getElementById("button").href = "https://www.linkedin.com/in/lily-hecke/";
+}
+</script>
